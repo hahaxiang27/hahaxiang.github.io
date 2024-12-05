@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    width: 25%;
+    background-color: #f5e6d3;
+    padding: 1.5rem;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    margin: 0;
+    height: calc(100vh - 4rem);
+    position: sticky;
+    top: 2rem;
+}
+.sidebar {
+    background-image: url('../images/left.jpg');
+    background-size: cover;
+    background-position: center;
+} 
+.nav-menu {
+    list-style: none;
+    padding-top: 2rem;
+}
+
+.nav-menu li {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.nav-menu a {
+    font-family: 'Cream', 'Microsoft YaHei', sans-serif;
+    color: #6d4c41;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    background-color: #fff;
+    display: block;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-menu a:hover {
+    color: #fff;
+    background-color: #8d6e63;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* 修改背景图片区域样式 */
+.background-image {
+    height: 200px;
+    width: 100%;
+    background-image: url('../images/background.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 主内容区样式 */
+.main-content {
+    width: 75%;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff5f7;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    background-image: linear-gradient(135deg, #fff5f7 0%, #fff8f8 100%);
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
+    border: 4px solid #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+}
+
+.name {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.social-links {
+    margin: 2rem 0;
+}
+
+.social-link {
+    margin: 0 1rem;
+    display: inline-block;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.social-link img {
+    width: 58px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-link img:hover {
+    transform: scale(1.1);
+}
+
+.motto {
+    font-size: 1.8rem;
+    color: #8d6e63;
+    margin: 2rem 0;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.site-info {
+    margin-top: 3rem;
+    color: #8d6e63;
+    padding: 1rem;
+    border-top: 2px dashed #f5e6d3;
+}
+
+.site-info p {
+    margin: 0.5rem 0;
+}
+
+/* 猫猫页面样式 */
+.cat-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.cat-tab {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #6d4c41;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Cream', 'Microsoft YaHei', sans-serif;
+}
+
+.cat-tab.active {
+    background-color: #fff;
+    color: #6d4c41;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 修改轮播图容器样式 */
+.cat-carousel {
+    position: relative;
+    width: 55%;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background-color: transparent;
+    padding: 1rem;
+}
+
+.carousel-container {
+    height: 100%;
+    width: 100%;
+    display: none; /* 默认隐藏所播容器 */
+}
+
+.carousel-container.active {
+    display: block; /* 只显示激活的轮播容器 */
+}
+
+.carousel-slide {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-slide.active {
+    display: flex;
+    opacity: 1;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 添加鼠标悬停效果 */
+.carousel-slide img:hover {
+    transform: scale(1.02);
+}
+
+/* 优化轮播按钮样式 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    color: #6d4c41;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+}
+
+.carousel-btn::before {
+    content: '';
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.prev-btn::before {
+    transform: rotate(-45deg);
+}
+
+.next-btn::before {
+    transform: rotate(45deg);
+}
+
+.carousel-btn:hover {
+    background-color: #fff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* 添加按钮悬停时的动画效果 */
+.prev-btn:hover::before {
+    transform: rotate(-45deg) translateX(-3px);
+}
+
+.next-btn:hover::before {
+    transform: rotate(45deg) translateX(3px);
+}
+
+@font-face {
+    font-family: 'Cream';
+    src: url('../fonts/cream.ttf') format('truetype');
+}
+
+/* 修改主内区布局 */
+.cat-content {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* 调整轮播图宽度和样式 */
+.cat-carousel {
+    width: 55%;
+    height: 500px;
+    background-color: #fff;
+    padding: 1rem;
+}
+
+/* 优化猫猫信息样式 */
+.cat-info {
+    width: 45%;
+    position: relative;
+}
+
+.cat-info-card {
+    display: none;
+    background: #fff0f3;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(141, 110, 99, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cat-info-card.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.cat-info-card h2 {
+    color: #6d4c41;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Cream', 'Microsoft YaHei', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.cat-info-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #8d6e63, #f5e6d3);
+    border-radius: 2px;
+}
+
+.info-item {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(141, 110, 99, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(141, 110, 99, 0.12);
+}
+
+.info-item h3 {
+    color: #8d6e63;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Cream', 'Microsoft YaHei', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.info-item h3::before {
+    content: '🐾';
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.info-item p {
+    color: #6d4c41;
+    line-height: 1.6;
+    font-size: 1rem;
+    padding-left: 1.5rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 添加emoji样式 */
+.floating-emoji {
+    position: fixed;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+    z-index: 1000;
+    font-size: 1.5rem;
+}
+
+/* 添加emoji动画 */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* 内容区默认样式 */
+.main-content {
+    width: 75%;
+    padding: 2rem;
+    background-color: #fff;  /* 默认白色背景 */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 猫猫页面特定样式 */
+.cats-page .main-content {
+    background-color: #fff0f3;  /* 只在猫猫页面显示粉色背景 */
+}
+
+/* 修改猫猫页面的标签按钮样式 */
+.cats-page .cat-tab {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.cats-page .cat-tab.active {
+    background-color: #fff;
+    color: #6d4c41;
+}
+
+/* 修改猫猫页面的轮播图容器背景 */
+.cats-page .cat-carousel {
+    background-color: transparent;
+}
+
+/* 添加猫猫标题样式 */
+.cat-tabs span {
+    font-family: 'Cream', 'Microsoft YaHei', sans-serif;
+    font-size: 1.5rem;
+    color: #6d4c41;
+    margin-right: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 添加可爱的下划线装饰 */
+.cat-tabs span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ffb6c1, transparent);
+    border-radius: 2px;
+}
+
+/* 添加可爱的猫爪图标 */
+.cat-tabs span::before {
+    content: '🐾';
+    margin-right: 8px;
+    font-size: 1.3rem;
+    vertical-align: middle;
+}
