@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的猫猫们</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="cats-page">
+    <div class="container">
+        <!-- 左侧导航栏 -->
+        <div class="sidebar">
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="cats.html">我的猫猫</a></li>
+                    <li><a href="#">我的项目</a></li>
+                    <li><a href="#">关于我</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- 主要内容区 -->
+        <div class="main-content">
+            <div class="cat-tabs">
+                <span>我们家的猫猫：</span>
+                <button class="cat-tab active" data-cat="limao">李猫猫</button>
+                <button class="cat-tab" data-cat="xiaohei">小小黑</button>
+                <button class="cat-tab" data-cat="sanhua">三花</button>
+                <button class="cat-tab" data-cat="daju">大橘</button>
+            </div>
+
+            <div class="cat-content">
+                <!-- 左侧轮播图 -->
+                <div class="cat-carousel">
+                    <!-- 李猫猫的轮播 -->
+                    <div class="carousel-container active" id="limao-carousel">
+                        <div class="carousel-slide active">
+                            <img src="images/cats/limao1.jpg" alt="李猫猫">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/cats/limao2.jpg" alt="李猫猫">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/cats/limao3.jpg" alt="李猫猫">
+                        </div>
+                    </div>
+
+                    <!-- 其他猫猫的轮播容器 -->
+                    <div class="carousel-container" id="xiaohei-carousel">
+                        <div class="carousel-slide active">
+                            <img src="images/cats/xiaohei1.jpg" alt="小小黑">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/cats/xiaohei2.jpg" alt="小小黑">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/cats/xiaohei3.jpg" alt="小小黑">
+                        </div>
+                    </div>
+                    <div class="carousel-container" id="sanhua-carousel">
+                        <!-- 三花的图片 -->
+                    </div>
+                    <div class="carousel-container" id="daju-carousel">
+                        <!-- 大橘的图片 -->
+                    </div>
+
+                    <button class="carousel-btn prev-btn"></button>
+                    <button class="carousel-btn next-btn"></button>
+                </div>
+
+                <!-- 右侧猫猫信息 -->
+                <div class="cat-info">
+                    <!-- 李猫猫信息 -->
+                    <div class="cat-info-card active" id="limao-info">
+                        <h2>李猫猫</h2>
+                        <div class="info-item">
+                            <h3>品种</h3>
+                            <p>英国短毛猫</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>来历</h3>
+                            <p>2023年初在路边救助, 下半身瘫痪, 现在已经恢复啦</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>习惯</h3>
+                            <p>喜欢躺在床边晒太阳，睡觉打呼贼大声</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>性格</h3>
+                            <p>温顺亲人，胆小怕生，特别特别粘人</p>
+                        </div>
+                    </div>
+
+                    <!-- 小小黑信息 -->
+                    <div class="cat-info-card" id="xiaohei-info">
+                        <h2>小小黑</h2>
+                        <div class="info-item">
+                            <h3>品种</h3>
+                            <p>超级奶牛猫</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>来历</h3>
+                            <p>单位院子里的新生猫，从喂奶开始养，养成系</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>习惯</h3>
+                            <p>喜欢追逐玩具老鼠，最爱吃猫条</p>
+                        </div>
+                        <div class="info-item">
+                            <h3>性格</h3>
+                            <p>养成系疯狂奶牛猫，牛多奶少，活泼好动，爱玩爱闹</p>
+                        </div>
+                    </div>
+
+                    <!-- 三花信息 -->
+                    <div class="cat-info-card" id="sanhua-info">
+                        <!-- 按相同结构添加三花的信息 -->
+                    </div>
+
+                    <!-- 大橘信息 -->
+                    <div class="cat-info-card" id="daju-info">
+                        <!-- 按相同结构添加大橘的信息 -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // 猫猫标签切换
+        const catTabs = document.querySelectorAll('.cat-tab');
+        const carouselContainers = document.querySelectorAll('.carousel-container');
+
+        catTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有活动状态
+                catTabs.forEach(t => t.classList.remove('active'));
+                carouselContainers.forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('.cat-info-card').forEach(info => info.classList.remove('active'));
+
+                // 添加新的活动状态
+                tab.classList.add('active');
+                const catId = tab.dataset.cat;
+                document.getElementById(`${catId}-carousel`).classList.add('active');
+                document.getElementById(`${catId}-info`).classList.add('active');
+            });
+        });
+
+        // 修改轮播图功能
+        function setupCarousel(containerId) {
+            const container = document.getElementById(containerId);
+            const slides = container.querySelectorAll('.carousel-slide');
+            const prevBtn = container.parentElement.querySelector('.prev-btn');
+            const nextBtn = container.parentElement.querySelector('.next-btn');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (index + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            // 添加鼠标滚轮事件监听
+            container.addEventListener('wheel', (event) => {
+                event.preventDefault(); // 防止页面滚动
+                if (event.deltaY > 0) {
+                    // 向下滚动，显示下一张
+                    showSlide(currentSlide + 1);
+                } else {
+                    // 向上滚动，显示上一张
+                    showSlide(currentSlide - 1);
+                }
+            });
+
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+            // 移除自动轮播，因为现在使用滚轮控制
+            // setInterval(() => showSlide(currentSlide + 1), 5000);
+        }
+
+        // 为每个猫猫的轮播图设置功能
+        ['limao', 'xiaohei', 'sanhua', 'daju'].forEach(cat => {
+            setupCarousel(`${cat}-carousel`);
+        });
+
+        // 修改 emoji 效果
+        const emojis = ['😺', '😸', '😹', '😻', '😼', '😽', '🐱', '🐈', '💕', '❤️'];
+        let lastEmojiTime = 0;
+
+        function createEmoji(e) {
+            const emoji = document.createElement('span');
+            emoji.className = 'floating-emoji';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // 设置emoji的位置，添加一些随机偏移
+            const offsetX = (Math.random() - 0.5) * 40; // -20 到 20 像素的随机偏移
+            const offsetY = (Math.random() - 0.5) * 40;
+            
+            emoji.style.left = (e.clientX + offsetX) + 'px';
+            emoji.style.top = (e.clientY + offsetY) + 'px';
+            
+            document.body.appendChild(emoji);
+            
+            // 动画结束后移除元素
+            setTimeout(() => {
+                emoji.remove();
+            }, 1000);
+        }
+
+        // 监听主内容区的鼠标移动
+        document.querySelector('.main-content').addEventListener('mousemove', (e) => {
+            const currentTime = Date.now();
+            // 每 50 毫秒创建一个新的 emoji
+            if (currentTime - lastEmojiTime > 50) {
+                createEmoji(e);
+                lastEmojiTime = currentTime;
+            }
+        });
+    </script>
+</body>
+</html> 
